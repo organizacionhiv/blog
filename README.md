@@ -18,6 +18,14 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Web-app Architecture
+
+[`eraser`](https://app.eraser.io/workspace/BVt91FRYlFZd7JagzUqh)
+
+## Trello
+
+[`trello board`](https://trello.com/b/jxyB7EYf/blog)
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
