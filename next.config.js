@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  images:{
-    domains:["lh3.googleusercontent.com","firebasestorage.googleapis.com"]
-  }
-}
 
-module.exports = nextConfig
+const { i18n } = require("./next-i18next.config");
+
+const nextConfig = {
+  i18n,
+  images: {
+    domains: ["lh3.googleusercontent.com", "firebasestorage.googleapis.com"],
+  },
+};
+
+module.exports = nextConfig;
