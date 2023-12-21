@@ -7,15 +7,10 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       <div className={styles.info}>
-        <div className={styles.logo}>
-          <Image src="/logo.png" alt="lama blog" width={50} height={50} />
-          <h1 className={styles.logoText}>Lamablog</h1>
-        </div>
+        <div className={styles.logo}></div>
         <p className={styles.desc}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-          necessitatibus similique aspernatur obcaecati veritatis. Aperiam cum
-          porro sequi, totam minima consequuntur, aspernatur deleniti vero
-          repellendus dorales.
+          Creado por Federico Acosta y con apoyo de comunidad de HIV+ de rio
+          cuarto.
         </p>
         <div className={styles.icons}>
           <Image src="/facebook.png" alt="" width={18} height={18} />
@@ -27,17 +22,16 @@ const Footer = () => {
       <div className={styles.links}>
         <div className={styles.list}>
           <span className={styles.listTitle}>Links</span>
-          <Link href="/">Homepage</Link>
-          <Link href="/">Blog</Link>
-          <Link href="/">About</Link>
-          <Link href="/">Contact</Link>
+          <Link href="/">Inicio</Link>
+          <Link href="/">Chat</Link>
+          <Link href="/">Acerca</Link>
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Tags</span>
-          <Link href="/">Style</Link>
-          <Link href="/">Fashion</Link>
-          <Link href="/">Coding</Link>
-          <Link href="/">Travel</Link>
+          <Link href="/">News</Link>
+          <Link href="/">Tutoriales</Link>
+          <Link href="/">Consultas</Link>
+          <Link href="/">otros</Link>
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Social</span>

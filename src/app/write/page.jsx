@@ -12,7 +12,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import { app } from "@/utils/firebase";
+import { firebaseApp } from "@/utils/firebase";
 import ReactQuill from "react-quill";
 
 const WritePage = () => {
@@ -62,7 +62,7 @@ const WritePage = () => {
   }, [file]);
 
   if (status === "loading") {
-    return <div className={styles.loading}>Loading...</div>;
+    return <div className={styles.loading}>Cargando...</div>;
   }
 
   if (status === "unauthenticated") {
@@ -97,20 +97,23 @@ const WritePage = () => {
 
   return (
     <div className={styles.container}>
+      <select
+        className={styles.select}
+        onChange={(e) => setCatSlug(e.target.value)}
+      >
+        <option value="general">General</option>
+        <option value="style">News</option>
+        <option value="fashion">Tutoriales</option>
+        <option value="food">Consultas</option>
+        <option value="culture">Otros</option>
+      </select>
       <input
         type="text"
-        placeholder="Title"
+        placeholder="Titulo"
         className={styles.input}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
-        <option value="style">style</option>
-        <option value="fashion">fashion</option>
-        <option value="food">food</option>
-        <option value="culture">culture</option>
-        <option value="travel">travel</option>
-        <option value="coding">coding</option>
-      </select>
+
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>
           <Image src="/plus.png" alt="" width={16} height={16} />
@@ -141,11 +144,12 @@ const WritePage = () => {
           theme="bubble"
           value={value}
           onChange={setValue}
-          placeholder="Tell your story..."
+          placeholder="Escribe aqui el cuerpo del post"
         />
       </div>
+
       <button className={styles.publish} onClick={handleSubmit}>
-        Publish
+        Publicar
       </button>
     </div>
   );
