@@ -4,15 +4,19 @@ import Image from "next/image";
 import Comments from "@/components/comments/Comments";
 
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
-    cache: "no-store",
-  });
+  try {
+    const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
+      cache: "no-store",
+    });
 
-  if (!res.ok) {
-    throw new Error("Failed");
+    if (!res.ok) {
+      throw new Error("Failed");
+    }
+
+    return res.json();
+  } catch (error) {
+    return null;
   }
-
-  return res.json();
 };
 
 const SinglePage = async ({ params }) => {
@@ -28,7 +32,12 @@ const SinglePage = async ({ params }) => {
           <div className={styles.user}>
             {data?.user?.image && (
               <div className={styles.userImageContainer}>
-                <Image src={data.user.image} alt="" fill className={styles.avatar} />
+                <Image
+                  src={data.user.image}
+                  alt=""
+                  fill
+                  className={styles.avatar}
+                />
               </div>
             )}
             <div className={styles.userTextContainer}>
@@ -50,7 +59,7 @@ const SinglePage = async ({ params }) => {
             dangerouslySetInnerHTML={{ __html: data?.desc }}
           />
           <div className={styles.comment}>
-            <Comments postSlug={slug}/>
+            <Comments postSlug={slug} />
           </div>
         </div>
         <Menu />

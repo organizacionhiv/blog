@@ -5,18 +5,22 @@ import Image from "next/image";
 import Card from "../card/Card";
 
 const getData = async (page, cat) => {
-  const res = await fetch(
-    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
-    {
-      cache: "no-store",
+  try {
+    const res = await fetch(
+      `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`,
+      {
+        cache: "no-store",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed");
     }
-  );
 
-  if (!res.ok) {
-    throw new Error("Failed");
+    return res.json();
+  } catch (error) {
+    return null;
   }
-
-  return res.json();
 };
 
 const CardList = async ({ page, cat }) => {

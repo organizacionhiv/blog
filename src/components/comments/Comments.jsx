@@ -8,16 +8,20 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 const fetcher = async (url) => {
-  const res = await fetch(url);
+  try {
+    const res = await fetch(url);
 
-  const data = await res.json();
+    const data = await res.json();
 
-  if (!res.ok) {
-    const error = new Error(data.message);
-    throw error;
+    if (!res.ok) {
+      const error = new Error(data.message);
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    return null;
   }
-
-  return data;
 };
 
 const Comments = ({ postSlug }) => {
